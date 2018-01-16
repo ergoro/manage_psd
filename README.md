@@ -2,10 +2,10 @@
 ## Short paper on trust, cooperation and private sector development
 
 ## 1. Project Overview
-This research project executes the analyses below using Stata and data collected from applicants to the free mentorship service for applying to scholarships offered by Tu Beca Bolivia (TBB):
+This research project executes a brief analysis of some indicators that aim to capture the degree of trust and cooperation and how these affect private sector development in the regions of LAC, EA and SSA.
 
 ## 2. Data Sources and sample
-The data source comes from a sample of 241 out of the 890 applicantions submitted to TBB during the 2017 version.
+The data source comes from Enterprise Surveys.
 
 ## 3. Structuring and cleaning dataset
 
