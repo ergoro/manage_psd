@@ -1,8 +1,8 @@
-# trust_psd_LAC_EA_SSA
-## Short paper on trust, cooperation and private sector development
+# tech_PSD
+## Short paper on Technology and Private Sector Development
 
 ## 1. Project Overview
-This research project executes a brief analysis of some indicators that aim to capture the degree of trust and cooperation and how these affect private sector development in the regions of LAC, EA and SSA.
+This research project executes a brief analysis of some indicators that aim to capture the influence of technology on private sector development in landlocked countries.
 
 ## 2. Data Sources and sample
 The data source comes from Enterprise Surveys.
@@ -44,3 +44,7 @@ This module has two sections.
   - [code that executes all the other steps](https://github.com/ergoro/2017_tbb_eval_application/blob/master/2017_app_eval_main.do)
 - [Outputs]
   - [Analysis note](https://docs.google.com/document/d/1mOQQ4t6Sa5SFIvdoRW2JKK1XS17hu_9zzFQIL-aAzIg/edit?usp=sharing)
+
+ ## 5. Paper
+ 
+ - Paper in Overleaf
