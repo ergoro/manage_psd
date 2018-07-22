@@ -1,5 +1,4 @@
-cd "C:\Users\Erick Gonzales\Documents\1_Contributions\benkyoukai\KG\data_management\data"
-use "lac_data_management.dta", clear
+*generate vars
 
 *====Structuring data
 tab a1n
@@ -122,22 +121,3 @@ encode a1n, generate(country)
 encode a2n, generate(city)
 *sector
 gen sector=a4a
-
-*====Descriptive statistics
-sort a1n
-by a1n: sum ASCr1 ASCr2 ASCr7 ASCr8 ASCr111 ASCr11t
-by a1n: tabstat ASCr1 ASCr2 ASCr7 ASCr8 ASCr111 ASCr11t, stat(mean sd min p50 max iqr cv skewness kurtosis n)
-by a1n: sum d2 n3 sg
-sum ASCr1 ASCr2 ASCr7 ASCr8 ASCr111 ASCr11t
-tabstat ASCr1 ASCr2 ASCr7 ASCr8 ASCr111 ASCr11t, stat(mean sd min p50 max iqr cv skewness kurtosis n)
-sum d2 n3 sg
-sort a1n
-by a1n: tabstat monitor target pmanage sg, stat(mean sd min p50 max iqr cv skewness kurtosis n)
-tabstat monitor target pmanage sg, stat(mean sd min p50 max iqr cv skewness kurtosis n)
-
-*====Estimation
-regress sg moquan taquan pmquan mo_ta mo_pm ta_pm i.country i.sector
-regress sg moquan taquan pmquan mo_ta mo_pm ta_pm i.city i.sector
-regress sg monitor target pmanage mt tp pm i.country i.sector
-
-*check sector variable a4a
