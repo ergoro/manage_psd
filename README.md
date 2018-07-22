@@ -13,22 +13,22 @@ The data source comes from Enterprise Surveys (MANAGEMENT PRACTICES module).
 - Inputs
   - [Data from Enterprise Surveys (Link)](https://www.enterprisesurveys.org/)
 - Code
-  - [structure](https://github.com/ergoro/manage_psd/blob/master/dofiles/combine.do)
+  - [structure](https://github.com/ergoro/manage_psd/blob/master/data_codes/combine.do)
 - Outputs
-  - [Dataset ready for Stata use (.dta file)]
+  - Dataset ready for Stata use (.dta file)
 
 ## 4. Analyze data
  
 ### Code
-- [Inputs]
-  - [NA]
+- Inputs
+  - Dataset ready for Stata use (.dta file)
 - Code:
-  - [Main code (executes all the other steps)]
-  - [Describe](https://github.com/ergoro/manage_psd/blob/master/dofiles/describe.do)
-  - [Generate vars]
+  - [Main code (executes all the other steps)](https://github.com/ergoro/manage_psd/blob/master/data_codes/main.do)
+  - [Describe](https://github.com/ergoro/manage_psd/blob/master/data_codes/describe.do)
+  - [Generate vars](https://github.com/ergoro/manage_psd/blob/master/data_codes/genvars.do)
   - [Clean]
-  - [Estimation]
-- [Outputs]
+  - [Estimation](https://github.com/ergoro/manage_psd/blob/master/data_codes/estimation.do)
+- Outputs
   - [Tables, figures, etc. for analysis](https://github.com/ergoro/manage_psd/blob/master/paper/short-paper-1.lyx)
   
  ## 5. Paper
