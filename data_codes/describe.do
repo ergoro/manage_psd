@@ -10,3 +10,4 @@ sort a1n
 by a1n: tabstat monitor target pmanage sg, stat(mean sd min p50 max iqr cv skewness kurtosis n)
 tabstat monitor target pmanage sg, stat(mean sd min p50 max iqr cv skewness kurtosis n)
 
+*test
