@@ -1,3 +1,4 @@
+*########################################=====ERICK=====###################################
 *generate vars
 
 *====Structuring data
@@ -121,3 +122,6 @@ encode a1n, generate(country)
 encode a2n, generate(city)
 *sector
 gen sector=a4a
+
+
+*########################################=====CHRIS=====###################################

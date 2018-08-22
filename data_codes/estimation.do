@@ -1,3 +1,4 @@
+*########################################=====ERICK=====###################################
 *====Estimation
 *==factor analysis
 factor moquan moqual taquan taqual pmquan pmqual, pcf
@@ -21,6 +22,16 @@ rotate
 *==regression
 regress sg moquan taquan pmquan mo_ta mo_pm ta_pm i.country i.sector
 regress sg moquan taquan pmquan mo_ta mo_pm ta_pm i.city i.sector
+
+
+replace monitor=monitor/100
+sum monitor
+
+
 regress sg monitor target pmanage mt tp pm i.country i.sector
 
 *check sector variable a4a
+
+
+
+*########################################=====CHRIS=====###################################

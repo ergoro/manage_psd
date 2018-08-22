@@ -1,3 +1,4 @@
+*########################################=====ERICK=====###################################
 *Append datasets
 cd "C:\Users\Erick Gonzales\Documents\1_Contributions\benkyoukai\KG\data_management"
 
@@ -66,3 +67,7 @@ append using "Paraguay-2017-full data.dta"
 append using "Peru-2017-full data.dta"
 append using "Uruguay-2017-full data.dta"
 */
+
+
+*########################################=====CHRIS=====###################################
+

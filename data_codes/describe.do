@@ -1,3 +1,4 @@
+*########################################=====ERICK=====###################################
 *====Descriptive statistics
 sort a1n
 by a1n: sum ASCr1 ASCr2 ASCr7 ASCr8 ASCr111 ASCr11t
@@ -11,3 +12,6 @@ by a1n: tabstat monitor target pmanage sg, stat(mean sd min p50 max iqr cv skewn
 tabstat monitor target pmanage sg, stat(mean sd min p50 max iqr cv skewness kurtosis n)
 
 *test
+
+
+*########################################=====CHRIS=====###################################
