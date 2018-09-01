@@ -83,6 +83,7 @@ Uruguay 2015 2016 2017
 
 gen erat=.
 replace erat=16.5627069251411 if country==1 & fiyear==2017
+replace erat=14.7581750873396 if a1n=="Argentina" & fiyear==2016
 
 
 replace erat=2.9036575 if (country_year=="Argentina2006")
