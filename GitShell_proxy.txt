@@ -1,0 +1,10 @@
+Proxy problem in Git shell
+
+In Github Desktop, opened git shell for the specific repository
+
+~> git config --global http.proxy proxy.kwansei.ac.jp:8080
+~> git config --global https.proxy proxy.kwansei.ac.jp:8080
+
+
+git config --global --unset http.proxy
+git config --global --unset https.proxy
