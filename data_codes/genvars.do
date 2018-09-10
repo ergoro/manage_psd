@@ -72,53 +72,31 @@ gen pm=pmanage*monitor
 *The sales variable is in national currency. I want to convert it to 2005 USD
 *exchange rates:
 bysort a1n: tab fiyear
-Argentina 2016 2017
-Bolivia 2015 2016 2017
-Colombia 2016 2017
-Ecuador 2016
-Paraguay 2016
-Peru 2015 2016 2017
-Uruguay 2015 2016 2017
-
+*Argentina 2016 2017
+*Bolivia 2015 2016 2017
+*Colombia 2016 2017
+*Ecuador 2016
+*Paraguay 2016
+*Peru 2015 2016 2017
+*Uruguay 2015 2016 2017
 
 gen erat=.
 replace erat=16.5627069251411 if a1n=="Argentina" & fiyear==2017
 replace erat=14.7581750873396 if a1n=="Argentina" & fiyear==2016
+replace erat=6.91 if a1n=="Bolivia" & fiyear==2017
+replace erat=6.91 if a1n=="Bolivia" & fiyear==2016
+replace erat=6.91 if a1n=="Bolivia" & fiyear==2015
+replace erat=2951.3274023476 if a1n=="Colombia" & fiyear==2017
+replace erat=3054.12167321081 if a1n=="Colombia" & fiyear==2016
+replace erat=1 if a1n=="Ecuador" & fiyear==2016
+replace erat=5670.51743118687 if a1n=="Paraguay" & fiyear==2016
+replace erat=3.2604884908321 if a1n=="Peru" & fiyear==2017
+replace erat=3.37506158720665 if a1n=="Peru" & fiyear==2016
+replace erat=3.18443924152237 if a1n=="Peru" & fiyear==2015
+replace erat=28.6764 if a1n=="Uruguay" & fiyear==2017
+replace erat=30.1626 if a1n=="Uruguay" & fiyear==2016
+replace erat=27.3273666666667 if a1n=="Uruguay" & fiyear==2015
 
-
-replace erat=2.9036575 if (country_year=="Argentina2006")
-replace erat=3.71010683052328 if (country_year=="Argentina2010")
-replace erat=8.0660625 if (country_year=="Bolivia2006")
-replace erat=7.02 if (country_year=="Bolivia2010")
-replace erat=559.7675 if (country_year=="Chile2006")
-replace erat=560.85989484127 if (country_year=="Chile2010")
-replace erat=2320.83417666667 if (country_year=="Colombia2006")
-replace erat=2158.25590299025 if (country_year=="Colombia2010")
-*replace erat=25000 if (country_year=="Ecuador2006")
-replace erat=1 if (country_year=="Ecuador2006")
-replace erat=1 if (country_year=="Ecuador2010")
-replace erat=8.75 if (country_year=="ElSalvador2006")
-replace erat=8.75 if (country_year=="Elsalvador2010")
-replace erat=7.63394416666667 if (country_year=="Guatemala2006")
-replace erat=8.16155541666667 if (country_year=="Guatemala2010")
-replace erat=18.8323416666667 if (country_year=="Honduras2006")
-replace erat=18.8951 if (country_year=="Honduras2010")
-replace erat=10.8978916666667 if (country_year=="Mexico2006")
-replace erat=13.513475 if (country_year=="Mexico2010")
-replace erat=16.7333295340502 if (country_year=="Nicaragua2006")
-replace erat=20.3394818701997 if (country_year=="Nicaragua2010")
-replace erat=1 if (country_year=="Panama2006")
-replace erat=1 if (country_year=="Panama2010")
-replace erat=6177.95833333333 if (country_year=="Paraguay2006")
-replace erat=4965.39166666667 if (country_year=="Paraguay2010")
-replace erat=3.29584166666667 if (country_year=="Peru2006")
-replace erat=3.01150833333333 if (country_year=="Peru2010")
-replace erat=24.4786 if (country_year=="Uruguay2006")
-replace erat=22.5679833333333 if (country_year=="Uruguay2010")
-replace erat=2.08975 if (country_year=="Venezuela2006")
-replace erat=2.147 if (country_year=="Venezuela2010")
-*drop if (country_year=="Ecuador2006" | country_year=="Ecuador2010")
-drop if (country_year=="Venezuela2006" | country_year=="Venezuela2010")
 gen cpiusa=.
 replace cpiusa=1 if (year==1)
 replace cpiusa=1.09849974398361 if (year==2)
