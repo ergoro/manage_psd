@@ -5,10 +5,10 @@ use "lac_data_management.dta", clear
 
 *gen vars
 	do clean.do
-*gen vars
-	do genvars.do
 *describe
 	do describe.do
+*gen vars
+	do genvars.do
 *estimation
 	do estimation.do
 *robustness analysis

@@ -79,7 +79,6 @@ bysort a1n: tab fiyear
 *Paraguay 2016
 *Peru 2015 2016 2017
 *Uruguay 2015 2016 2017
-
 gen erat=.
 replace erat=16.5627069251411 if a1n=="Argentina" & fiyear==2017
 replace erat=14.7581750873396 if a1n=="Argentina" & fiyear==2016
@@ -96,10 +95,15 @@ replace erat=3.18443924152237 if a1n=="Peru" & fiyear==2015
 replace erat=28.6764 if a1n=="Uruguay" & fiyear==2017
 replace erat=30.1626 if a1n=="Uruguay" & fiyear==2016
 replace erat=27.3273666666667 if a1n=="Uruguay" & fiyear==2015
-
 gen cpiusa=.
-replace cpiusa=1 if (year==1)
-replace cpiusa=1.09849974398361 if (year==2)
+*CPI BLS CPI-All Urban Consumers (Current Series)
+*Base year changed to 2016
+replace cpiusa=1.02130354531326 if (fiyear==2017)
+replace cpiusa=1 if (fiyear==2016)
+replace cpiusa=0.987542030024124 if (fiyear==2015)
+describe d2
+tab d2
+extremes d2
 replace d2=. if (d2==-9 | d2==-8)
 gen Y=(d2/erat)/cpiusa
 
