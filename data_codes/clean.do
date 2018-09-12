@@ -60,4 +60,140 @@ tab n3, nolabel
 replace n3=. if n3==-9
 replace n3=. if n3==-7 
 
+
+
+
+CHECK:
+sort panel
+	by panel: sum Y LC K M E if d1a2n==18
+	twoway (scatter y lc, mlabel(idstd)) if d1a2n==18, by(year) ysize(20) xsize(20) ytitle("Sales (log)") xtitle("Labor cost (log)") caption("Source: LAC, ES")
+	twoway (scatter y k, mlabel(idstd)) if d1a2n==18, by(year) ysize(20) xsize(20) ytitle("Sales (log)") xtitle("Capital (log)") caption("Source: LAC, ES")
+	twoway (scatter y m, mlabel(idstd)) if d1a2n==18, by(year) ysize(20) xsize(20) ytitle("Sales (log)") xtitle("Raw mat. & Int. Goods (log)") caption("Source: LAC, ES")
+regress y lc if d1a2n==18
+	lvr2plot, mlabel(idstd) title("Labor cost (log)")
+predict stdresid, rstandard
+replace lc=. if stdresid>3
+replace lc=. if stdresid<-3
+replace LC=. if stdresid>3
+replace LC=. if stdresid<-3
+extremes stdresid idstd
+drop stdresid
+regress y k if d1a2n==18
+	lvr2plot, mlabel(idstd) title("Capital (log)")
+predict stdresid, rstandard
+replace k=. if stdresid>3
+replace k=. if stdresid<-3
+replace K=. if stdresid>3
+replace K=. if stdresid<-3
+extremes stdresid idstd
+drop stdresid
+regress y m if d1a2n==18
+	lvr2plot, mlabel(idstd) title("Raw mat. & Int. Goods (log)")
+predict stdresid, rstandard
+replace m=. if stdresid>3
+replace m=. if stdresid<-3
+replace M=. if stdresid>3
+replace M=. if stdresid<-3
+extremes stdresid idstd
+drop stdresid
+
+sort panel
+	by panel: sum Y LC K M E if d1a2n==36
+	twoway (scatter y lc, mlabel(idstd)) if d1a2n==36, by(year) ysize(20) xsize(20) ytitle("Sales (log)") xtitle("Labor cost (log)") caption("Source: LAC, ES")
+	twoway (scatter y k, mlabel(idstd)) if d1a2n==36, by(year) ysize(20) xsize(20) ytitle("Sales (log)") xtitle("Capital (log)") caption("Source: LAC, ES")
+	twoway (scatter y m, mlabel(idstd)) if d1a2n==36, by(year) ysize(20) xsize(20) ytitle("Sales (log)") xtitle("Raw mat. & Int. Goods (log)") caption("Source: LAC, ES")
+regress y lc if d1a2n==36
+	lvr2plot, mlabel(idstd) title("Labor cost (log)")
+predict stdresid, rstandard
+replace lc=. if stdresid>3
+replace lc=. if stdresid<-3
+replace LC=. if stdresid>3
+replace LC=. if stdresid<-3
+extremes stdresid idstd
+drop stdresid
+regress y k if d1a2n==36
+	lvr2plot, mlabel(idstd) title("Capital (log)")
+predict stdresid, rstandard
+replace k=. if stdresid>3
+replace k=. if stdresid<-3
+replace K=. if stdresid>3
+replace K=. if stdresid<-3
+extremes stdresid idstd
+drop stdresid
+regress y m if d1a2n==36
+	lvr2plot, mlabel(idstd) title("Raw mat. & Int. Goods (log)")
+predict stdresid, rstandard
+replace m=. if stdresid>3
+replace m=. if stdresid<-3
+replace M=. if stdresid>3
+replace M=. if stdresid<-3
+extremes stdresid idstd
+drop stdresid
+
+
+
+
+
+
+sort panel
+	by panel: sum Y LW LC K K1 M E F OC
+	twoway (scatter y lw, mlabel(idstd)), by(year) ysize(20) xsize(20) ytitle("Sales (log)") xtitle("Workers (log)") caption("Source: LAC, ES")
+	twoway (scatter y lc, mlabel(idstd)), by(year) ysize(20) xsize(20) ytitle("Sales (log)") xtitle("Labor cost (log)") caption("Source: LAC, ES")
+	twoway (scatter y k, mlabel(idstd)), by(year) ysize(20) xsize(20) ytitle("Sales (log)") xtitle("Capital (log)") caption("Source: LAC, ES")
+	twoway (scatter y k1, mlabel(idstd)), by(year) ysize(20) xsize(20) ytitle("Sales (log)") xtitle("Capital estimated (log)") caption("Source: LAC, ES")
+	twoway (scatter y m, mlabel(idstd)), by(year) ysize(20) xsize(20) ytitle("Sales (log)") xtitle("Raw mat. & Int. Goods (log)") caption("Source: LAC, ES")
+	*Comparing the two capital variables
+	twoway (scatter k k1, mlabel(idstd)), ysize(20) xsize(20) ytitle("Capital (log)") xtitle("Capital estimated (log)") caption("Source: LAC, ES")
+	twoway (scatter K K1, mlabel(idstd)), ysize(20) xsize(20) ytitle("Capital") xtitle("Capital estimated") caption("Source: LAC, ES")
+	pwcorr k k1, sig star(.001)
+	pwcorr K K1, sig star(.001)
+quietly{
+regress y lw
+	lvr2plot, mlabel(idstd) title("Workers (log)")
+predict stdresid, rstandard
+replace lw=. if stdresid>3
+replace lw=. if stdresid<-3
+replace LW=. if stdresid>3
+replace LW=. if stdresid<-3
+extremes stdresid idstd
+drop stdresid
+regress y lc
+	lvr2plot, mlabel(idstd) title("Labor cost (log)")
+predict stdresid, rstandard
+replace lc=. if stdresid>3
+replace lc=. if stdresid<-3
+replace LC=. if stdresid>3
+replace LC=. if stdresid<-3
+extremes stdresid idstd
+drop stdresid
+regress y k
+	lvr2plot, mlabel(idstd) title("Capital (log)")
+predict stdresid, rstandard
+replace k=. if stdresid>3
+replace k=. if stdresid<-3
+replace K=. if stdresid>3
+replace K=. if stdresid<-3
+extremes stdresid idstd
+drop stdresid
+regress y k1
+	lvr2plot, mlabel(idstd) title("Capital estimated(log)")
+predict stdresid, rstandard
+replace k1=. if stdresid>3
+replace k1=. if stdresid<-3
+replace K1=. if stdresid>3
+replace K1=. if stdresid<-3
+extremes stdresid idstd
+drop stdresid
+regress y m
+	lvr2plot, mlabel(idstd) title("Raw mat. & Int. Goods (log)")
+predict stdresid, rstandard
+replace m=. if stdresid>3
+replace m=. if stdresid<-3
+replace M=. if stdresid>3
+replace M=. if stdresid<-3
+extremes stdresid idstd
+drop stdresid
+}
+
+
 *########################################=====CHRIS=====###################################

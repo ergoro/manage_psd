@@ -67,7 +67,7 @@ gen tp=target*pmanage
 gen pm=pmanage*monitor
 
 *Productivity variables
-*SALES (Y)
+	*SALES (Y)
 *(total annual sales)
 *The sales variable is in national currency. I want to convert it to 2005 USD
 *exchange rates:
@@ -106,6 +106,53 @@ tab d2
 extremes d2
 replace d2=. if (d2==-9 | d2==-8)
 gen Y=(d2/erat)/cpiusa
+	*LABOR COST
+replace n2a=. if (n2a==-9 | n2a==-8)
+gen LC=(n2a/erat)/cpiusa
+	*RAW MATERIALS AND INTERMEDIATE GOODS COST
+replace n2e=. if (n2e==-9 | n2e==-8)
+gen M=(n2e/erat)/cpiusa
+	*MACHINERY AND EEQUIPMENT COST (BOOK VALUE)
+replace n6a=. if (n6a==-9 | n6a==-8)
+gen K=(n6a/erat)/cpibra	
+	*MACHINERY AND EQUIPMENT COST (ESTIMATED)
+replace n7a=. if (n7a==-9 | n7a==-8)
+gen K1=(n7a/erat)/cpibra	
+	*ELECTRICITY
+replace n2b=. if (n2b==-9 | n2b==-8)
+gen E=(n2b/erat)/cpibra
+	*FUEL
+	*OTHER COSTS
+	*VALUE ADDED
+generate VA=Y-M
+generate VA2=Y-M-E
+
+*Calculate non-monetary variables as well as logarithms
+egen LW=rowtotal(l1 l6)
+gen y=ln(Y)
+gen lc=ln(LC)
+gen m=ln(M)
+gen k=ln(K)
+gen k1=ln(K1)
+gen lw=ln(LW)
+gen e=ln(E)
+gen va=ln(VA)
+gen va2=ln(VA2)
+
+*analyze sectors
+describe d1a2
+preserve
+sort d1a2
+by d1a2: gen isicno=_n
+by d1a2: egen isicmax=max(isicno)
+sort isicmax
+collapse isicmax, by(d1a2)
+	*Sectors with largest and lowest number of observations (in total)
+	extremes isicmax d1a2
+gsort -isicmax
+	*Sectors with largest number of observations (in total)
+	list isicmax d1a2 in 1/10
+restore
 
 
 *########################################=====CHRIS=====###################################
