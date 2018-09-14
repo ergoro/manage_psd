@@ -1,0 +1,14 @@
+	(1)	(2)	(3)	(4)
+VARIABLES	OLS	Stochastic	Stochastic	Stochastic
+				
+k	0.0291*	0.0291*		
+	(0.0158)	(0.0157)		
+lc	0.870***	0.870***		
+	(0.0325)	(0.0322)		
+Constant	2.323***	2.327***	-0.665***	-10.19
+	(0.389)	(0.505)	(0.103)	(133.0)
+				
+Observations	187	187	187	187
+R-squared	0.821			
+Standard errors in parentheses				
+*** p<0.01, ** p<0.05, * p<0.1				
